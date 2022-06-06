@@ -6,10 +6,12 @@ import ViewOneBook from './components/ViewOneBook';
 import Characters from './components/Characters';
 import ViewOneCharacter from './components/ViewOneCharacter';
 
+
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
+    <div className="App"
+    style ={{backgroundImage:"url(/middleEarthMap.png)"}}>
       <Routes>
         <Route path='/' element={<ViewBooks/>}/>
         <Route path='/view/book/:id' element={<ViewOneBook/>}/>

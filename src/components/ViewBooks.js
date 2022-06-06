@@ -23,12 +23,13 @@ const ViewBooks=(props)=>{
 
 
 return(
-    <div>
+    <div style={{display:'flex', flexDirection:'column'}}>
         
             {bookList?
             bookList.map((book, index)=>(
             <Link to={`/view/book/${book._id}`}
             key={index}
+            style={{margin:'150px', fontSize:'50px', fontFamily:'Trattatello, fantasy'}}
             >{book.name}</Link>)
             )
         :null}

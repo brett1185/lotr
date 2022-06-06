@@ -23,7 +23,7 @@ const ViewOneCharacter=(props)=>{
         })
         
         .catch((err)=> console.log(err))
-    },[])
+    },[id])
 
     return(
         <div>
@@ -32,6 +32,8 @@ const ViewOneCharacter=(props)=>{
             <h1>{character.name}</h1>
             <p>race:{character.race}</p>
             <p>Gender: {character.gender}</p>
+            <a href={character.wikiUrl}>for more info</a>
+            
             </div>))}
         </div>
     )

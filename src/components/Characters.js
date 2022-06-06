@@ -25,11 +25,13 @@ const Characters=(props)=>{
     },[])
 
     return(
-        <div>
+        <div style={{display:'flex', flexDirection:'column'}}>
             <h1>List of Characters</h1>
             {
                 characterList.map((name, index)=>(
-                    <Link to={`/view/characters/${name._id}`} key={index}>{name.name}</Link>
+                    <Link to={`/view/characters/${name._id}`} key={index}
+                    >{name.name}
+                    </Link>
                 ))
             }
         </div>

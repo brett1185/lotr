@@ -29,7 +29,8 @@ const ViewOneBook=(props)=>{
             <h1>Chapters</h1>
             {
             book.map((chapter, index)=>(
-                <p key={index}>{chapter.chapterName}</p>
+                <p key={index}
+                style={{color:'green'}}>{chapter.chapterName}</p>
             ))
             }
         </div>
