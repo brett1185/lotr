@@ -26,17 +26,28 @@ const ViewOneCharacter=(props)=>{
     },[id])
 
     return(
-        <div>
+               <div>
             {character.map((character, index)=>(
-                <div key={index}>
-            <h1>{character.name}</h1>
-            <p>race:{character.race}</p>
-            <p>Gender: {character.gender}</p>
-            <a href={character.wikiUrl}>for more info</a>
+                <div  key={index}>
+            <h1 class='text'>{character.name}</h1>
+            <p class='text'>race:{character.race}</p>
+            <p class='text'>Gender: {character.gender}</p>
+            {character.birth===''?(
+                <p class='text'>Date of birth: Unknown</p>
+            ):(
+                <p class='text'>Date of Birth: {character.birth}</p>
+            )}
+            {character.death===''?(
+                <p class='text'>Date of death: Unknown</p>
+            ):(
+                <p class='text'>Date of death: {character.death}</p>
+            )}
+            <a href={character.wikiUrl} class='text'>For More Info...</a>
             
             </div>))}
         </div>
     )
+    
     
 }
 
