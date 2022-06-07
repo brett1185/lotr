@@ -28,11 +28,11 @@ const ViewOneCharacter=(props)=>{
     return(
         <div>
             {character.map((character, index)=>(
-                <div  key={index}>
-            <h1 class='text'>{character.name}</h1>
-            <p class='text'>race:{character.race}</p>
-            <p class='text'>Gender: {character.gender}</p>
-            <a href={character.wikiUrl} class='text'>for more info</a>
+                <div key={index}>
+            <h1>{character.name}</h1>
+            <p>race:{character.race}</p>
+            <p>Gender: {character.gender}</p>
+            <a href={character.wikiUrl}>for more info</a>
             
             </div>))}
         </div>

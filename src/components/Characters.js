@@ -29,8 +29,7 @@ const Characters=(props)=>{
             <h1>List of Characters</h1>
             {
                 characterList.map((name, index)=>(
-                    <Link class='text'to={`/view/characters/${name._id}`} key={index}
-                    style={{fontSize:'50px'}}
+                    <Link to={`/view/characters/${name._id}`} key={index}
                     >{name.name}
                     </Link>
                 ))

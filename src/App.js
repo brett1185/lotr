@@ -11,8 +11,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App"
-    style={{backgroundImage:"url(/middleEarthMap.png)", opacity:'.8'}}>
-    
+    style ={{backgroundImage:"url(/middleEarthMap.png)"}}>
       <Routes>
         <Route path='/' element={<ViewBooks/>}/>
         <Route path='/view/book/:id' element={<ViewOneBook/>}/>

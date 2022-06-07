@@ -2,17 +2,3 @@
   text-align: center;
 }
 
-.text{
-  background-clip: text; 
-  background-image:url('/public/eye.jpeg');
-  background-position: center;
-  color:transparent; font-family:'Trattatello, fantasy'
-}
-
-p{
-  font-size: 50px;
-}
-h1{
-  font-size: 75px;
-  border-bottom: 3px solid red;
-}

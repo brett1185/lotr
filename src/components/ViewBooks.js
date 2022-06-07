@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
-
 const ViewBooks=(props)=>{
     const [bookList, setBookList]=useState ([])
     useEffect(()=>{
@@ -28,9 +27,9 @@ return(
         
             {bookList?
             bookList.map((book, index)=>(
-            <Link class='text'to={`/view/book/${book._id}`}
+            <Link to={`/view/book/${book._id}`}
             key={index}
-            style={{margin:'90px', fontSize:'50px'}}
+            style={{margin:'150px', fontSize:'50px', fontFamily:'Trattatello, fantasy'}}
             >{book.name}</Link>)
             )
         :null}
