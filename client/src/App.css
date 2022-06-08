@@ -16,3 +16,8 @@ h1{
   font-size: 75px;
   border-bottom: 3px solid red;
 }
+
+.map{
+  background-image: url('/public/middleEarthMap.png');
+  object-fit: contain;
+}
