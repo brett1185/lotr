@@ -19,5 +19,15 @@ h1{
 
 .map{
   background-image: url('/public/middleEarthMap.png');
-  object-fit: contain;
+  height:150vh;
+  width: 100vw;
+}
+
+.shireLink{
+  position:absolute;
+  top:310px; left:475px;
+}
+
+#shire{
+  visibility:visible
 }
