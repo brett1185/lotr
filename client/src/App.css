@@ -23,11 +23,13 @@ h1{
   width: 100vw;
 }
 
-.shireLink{
+.shireLink a{
   position:absolute;
   top:310px; left:475px;
+  color: transparent;
 }
-
-#shire{
-  visibility:visible
+.shireLink a:hover {
+  position:absolute;
+  top:310px; left:475px;
+  color:blue;
 }

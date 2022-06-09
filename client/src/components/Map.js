@@ -10,10 +10,10 @@ const Map=(props)=>{
 
     return(
         <div className='map'>
-                <div>
+                <div className='shireLink'>
             
                 <a href='https://en.wikipedia.org/wiki/The_Shire'
-                className='shireLink'>The Shire</a>
+                >The Shire</a>
                 </div>
         </div>
     )
