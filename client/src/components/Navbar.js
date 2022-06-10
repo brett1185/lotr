@@ -1,16 +1,17 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Navbar=(props)=>{
 
-    const navigate=useNavigate()
 
     return(
-        <div>
-            <h1 class='text'>Welcome!</h1>
-            <button class='text' onClick={navigate('/view/characters')}>View Characters</button>
-            <button class='text' onClick={navigate('/')}>View Books</button>
-            <button class='text' onClick={navigate(/view/map)}>View Map</button>
+        <div style={{display:'flex', flexDirection:'column'}}>
+            <h2 className='text'>Directory</h2>
+            <div style={{display:'flex', justifyContent:'space-evenly'}}>
+            <Link className='text' to={'/home'}>Home</Link>
+            <Link className='text' to={'/view/map'}>View the Map</Link>
+            <Link className='text' to={'/view/characters'}>View Characters!</Link>
+            </div>
         </div>
     )
 

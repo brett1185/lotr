@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Navbar from './Navbar'
 
 
 const ViewBooks=(props)=>{
@@ -25,10 +26,10 @@ const ViewBooks=(props)=>{
 
 return(
     <div style={{display:'flex', flexDirection:'column'}}>
-        
+        <Navbar/>
             {bookList?
             bookList.map((book, index)=>(
-            <Link class='text'to={`/view/book/${book._id}`}
+            <Link className='text'to={`/view/book/${book._id}`}
             key={index}
             style={{margin:'90px', fontSize:'50px'}}
             >{book.name}</Link>)

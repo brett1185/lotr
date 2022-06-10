@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react' 
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
+import Navbar from './Navbar'
 
 
 const ViewOneBook=(props)=>{
@@ -26,6 +27,7 @@ const ViewOneBook=(props)=>{
     return(
         
         <div>
+            <Navbar/>
             <h1>Chapters</h1>
             {
             book.map((chapter, index)=>(

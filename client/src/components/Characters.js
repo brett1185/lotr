@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react' 
 import { Link} from 'react-router-dom'
 import axios from 'axios'
+import Navbar from './Navbar'
 
 
 const Characters=(props)=>{
@@ -27,6 +28,7 @@ const Characters=(props)=>{
 
     return(
         <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
+            <Navbar/>
             <h1 class='text'>List of Characters</h1>
             <div style={{marginBottom:'30px', borderBottom:'5px solid black' }}>
             <h2 class='text'>Search by Name:</h2>
