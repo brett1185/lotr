@@ -33,3 +33,8 @@ h1{
   top:310px; left:475px;
   color:blue;
 }
+
+.link{
+  size: 50px;
+  border: 3px solid black;
+}
