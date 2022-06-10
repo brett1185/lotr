@@ -8,7 +8,7 @@ const Navbar=(props)=>{
         <div style={{display:'flex', flexDirection:'column'}}>
             <h2 className='text'>Directory</h2>
             <div style={{display:'flex', justifyContent:'space-evenly'}}>
-            <Link className='text' to={'/home'}>Home</Link>
+            <Link className='text' to={'/'}>Home</Link>
             <Link className='text' to={'/view/map'}>View the Map</Link>
             <Link className='text' to={'/view/characters'}>View Characters!</Link>
             </div>
