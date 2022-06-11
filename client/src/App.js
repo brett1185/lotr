@@ -6,12 +6,13 @@ import ViewOneBook from './components/ViewOneBook';
 import Characters from './components/Characters';
 import ViewOneCharacter from './components/ViewOneCharacter';
 import Map from './components/Map';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      
+      <Navbar/>
       <Routes>
         <Route path='/' element={<ViewBooks/>}/>
         <Route path='/view/book/:id' element={<ViewOneBook/>}/>

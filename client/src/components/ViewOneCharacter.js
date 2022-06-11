@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react' 
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
-import Navbar from './Navbar'
 
 
 const ViewOneCharacter=(props)=>{
@@ -28,7 +27,7 @@ const ViewOneCharacter=(props)=>{
 
     return(
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
             {character.map((character, index)=>(
                 <div  key={index}>
             <h1 class='text'>{character.name}</h1>
