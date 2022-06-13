@@ -7,8 +7,9 @@ const Map=(props)=>{
         <div className='map'>
                 <div className='shireLink'>
             
-                <a href='https://en.wikipedia.org/wiki/The_Shire'
-                >The Shire</a>
+                <a href='https://en.wikipedia.org/wiki/The_Shire'>
+                    <img src='../public/shire.jpeg' alt='The Shire'/>
+                </a>
                 </div>
         </div>
     )
