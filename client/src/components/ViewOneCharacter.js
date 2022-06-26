@@ -27,7 +27,6 @@ const ViewOneCharacter=(props)=>{
 
     return(
         <div>
-            {/* <Navbar/> */}
             {character.map((character, index)=>(
                 <div  key={index}>
             <h1 class='text'>{character.name}</h1>
