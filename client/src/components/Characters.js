@@ -1,9 +1,19 @@
 import React, {useEffect, useState} from 'react' 
-import { Link} from 'react-router-dom'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import ViewAlphabetically from '../views/viewAlphabetically'
+import Results from '../views/Results'
 
 
 const Characters=(props)=>{
+    const regAtoC = new RegExp(/^[A-C]/g)
+    const regDtoF = new RegExp(/^[D-F]/g)
+    const regGtoI = new RegExp(/^[G-I]/g)
+    const regJtoL = new RegExp(/^[J-L]/g)
+    const regMtoO = new RegExp(/^[M-O]/g)
+    const regPtoR = new RegExp(/^[P-R]/g)
+    const regStoU = new RegExp(/^[S-U]/g)
+    const regVtoZ = new RegExp(/^[V-Z]/g)
 
     const [characterList, setCharacterList]=useState([])
     const [search, setSearch]=useState('')
@@ -18,47 +28,74 @@ const Characters=(props)=>{
         })
         .then((res)=>{
             console.log(res.data.docs)
-            setCharacterList(res.data.docs)
-            
+            setCharacterList(res.data.docs)        
         })
         
         .catch((err)=> console.log(err))
     },[])
 
+    const alphArray=[
+        {label:'A-C', content: characterList.filter(name=>name.name===regAtoC).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'D-F', content: characterList.filter(name=>name.name===regDtoF).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'G-I', content: characterList.filter(name=>name.name===regGtoI).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'J-L', content: characterList.filter(name=>name.name===regJtoL).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'M-O', content: characterList.filter(name=>name.name===regMtoO).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'P-R', content: characterList.filter(name=>name.name===regPtoR).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'S-U', content: characterList.filter(name=>name.name===regStoU).map((names, index)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))},
+        {label:'V-Z', content: characterList.filter(name=>name.name===regVtoZ).map((names, index)=>(
+            <Link className='text'to={`/view/characters/${names._id}`} key={index}
+            style={{fontSize:'50px', margin:'5px'}}
+            >{names.name}
+            </Link>
+        ))}
+    ]
+    const [ allTabs, setAllTabs ] = useState(alphArray);
+
+    const [ currentTabIndex, setCurrentTabIndex ] = useState(0);
 
 
-    return(
-        <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
-            <h1 class='text'>List of Characters</h1>
-            <div style={{marginBottom:'30px', borderBottom:'5px solid black' }}>
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between', marginRight:'25px', marginLeft:'25px'}}>
-                <p class='alphabet'>A-C</p>
-                <p class='alphabet'>D-F</p>
-                <p class='alphabet'>G-I</p>
-                <p class='alphabet'>J-L</p>
-                <p class='alphabet'>M-O</p>
-                <p class='alphabet'>P-R</p>
-                <p class='alphabet'>S-U</p>
-                <p class='alphabet'>V-Z</p>
-            </div>
-            <h2 class='text'>Search by Name:</h2>
-            <input style={{width:'100px', position:'center'}}
-            type='text' onChange={(e)=>setSearch(e.target.value)}/>
-            </div>
-            {
-                characterList.filter((data)=>{
-                    if(search===''){
-                        return data}
-                    else if (data.name.toLowerCase().includes(search.toLowerCase())){
-                        return data
-                    }
-                }).map((name, index)=>(
-                    <Link class='text'to={`/view/characters/${name._id}`} key={index}
-                    style={{fontSize:'50px'}}
-                    >{name.name}
-                    </Link>
-                ))
-            }
+        return(
+        <div >
+            <ViewAlphabetically
+                allTabs={ allTabs } 
+                currentTabIndex={ currentTabIndex }
+                setCurrentTabIndex={ setCurrentTabIndex } />
+            <Results allTabs={ allTabs } currentTabIndex={ currentTabIndex }/>
         </div>
     )
 }

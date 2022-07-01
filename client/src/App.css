@@ -42,3 +42,15 @@ h1{
 .alphabet {
   font-size: 15px;
 }
+
+.selectedTab {
+  color: white;
+  background-color: black;
+  border: 2px solid black;
+}
+
+.nonSelectedTab {
+  color: black;
+  background-color: white;
+  border: 2px solid #bbbbbb;
+}
