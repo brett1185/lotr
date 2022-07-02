@@ -27,20 +27,27 @@ const Characters=(props)=>{
             headers:headers
         })
         .then((res)=>{
-            console.log(res.data.docs)
-            setCharacterList(res.data.docs)        
+            console.log(res)
+            console.log(res.data)
+            setCharacterList(res.data.docs)       
+            console.log(characterList) 
+            console.log(characterList[0].name)
         })
         
         .catch((err)=> console.log(err))
     },[])
 
     const alphArray=[
-        {label:'A-C', content: characterList.filter(name=>name.name===regAtoC).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
+        {label: 'View All', content: characterList.map((names, link)=>(
+            <Link class='text'to={`/view/characters/${names._id}`} key={link}
             style={{fontSize:'50px', margin:'5px'}}
             >{names.name}
             </Link>
         ))},
+        {label:'A-C', content: characterList.filter(name=>name.name===regAtoC).map((names, index)=>(
+            <Link class='text' key={index} to={`/view/characters/${names._id}`}>{names.name}</Link>
+        ))
+        },
         {label:'D-F', content: characterList.filter(name=>name.name===regDtoF).map((names, index)=>(
             <Link class='text'to={`/view/characters/${names._id}`} key={index}
             style={{fontSize:'50px', margin:'5px'}}
@@ -66,9 +73,7 @@ const Characters=(props)=>{
             </Link>
         ))},
         {label:'P-R', content: characterList.filter(name=>name.name===regPtoR).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
+            <Link class='text' to={`/view/characters/${names._id}`} key = {index}> {characterList.name}
             </Link>
         ))},
         {label:'S-U', content: characterList.filter(name=>name.name===regStoU).map((names, index)=>(

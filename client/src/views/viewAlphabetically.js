@@ -19,7 +19,7 @@ const ViewAlphabetically=(props)=>{
             <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', marginTop:'30px'}}>
                 {
                     allTabs.map((item, index) => (
-            <div className={`tab ${ tabStyle(index) }`} onClick={() => setSelectedTab(index) }>
+            <div key={index} className={`tab ${ tabStyle(index) }`} onClick={(e)=>setSelectedTab(index)}>
                 { item.label }
             </div>
         ))
