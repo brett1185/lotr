@@ -2,12 +2,12 @@ import React from "react";
 
 
 const Results=(props)=>{
-    const { allTabs, currentTabIndex } = props;
+    const { tabText } = props;
 
     return (
         <div className="results">
             <h1>List of Characters</h1>
-            <p>{allTabs[currentTabIndex].content}</p>
+            {tabText}
         </div>
     )
     
