@@ -11,7 +11,7 @@ const Characters=(props)=>{
     const regJtoL = new RegExp(/^[J-L]/g)
     const regMtoO = new RegExp(/^[M-O]/g)
     const regPtoR = new RegExp(/^[P-R]/g)
-    const regStoU = new RegExp(/^[S-U]/g)
+    const regStoU = new RegExp(/^[S-U,s-u]/g)
     const regVtoZ = new RegExp(/^[V-Z]/g)
 
     
@@ -44,49 +44,46 @@ const Characters=(props)=>{
             >{names.name}
             </Link></div>)
         )},
-        {label:'A-C', content: characterList.filter(name=>name.name===regAtoC).map((names, index)=>(<div key={index}>
-            <Link class='text' to={`/view/characters/${names._id}`}>{names.name}</Link></div>
+        {label:'A-C', content: characterList.filter(name=>regAtoC.exec(name.name)).map((names, index)=>(
+        <div key={index}>
+            <Link className='text' to={`/view/characters/${names._id}`} style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+            </div>
         ))
         },
-        {label:'D-F', content: characterList.filter(name=>name.name===regDtoF).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
-            </Link>
+        {label:'D-F', content: characterList.filter(name=>regDtoF.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))},
-        {label:'G-I', content: characterList.filter(name=>name.name===regGtoI).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
-            </Link>
+        {label:'G-I', content: characterList.filter(name=>regGtoI.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))},
-        {label:'J-L', content: characterList.filter(name=>name.name===regJtoL).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
-            </Link>
+        {label:'J-L', content: characterList.filter(name=>regJtoL.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))},
-        {label:'M-O', content: characterList.filter(name=>name.name===regMtoO).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
-            </Link>
+        {label:'M-O', content: characterList.filter(name=>regMtoO.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))},
-        {label:'P-R', content: characterList.filter(name=>name.name===regPtoR).map((names, index)=>(
-            <Link class='text' to={`/view/characters/${names._id}`} key = {index}> {characterList.name}
-            </Link>
+        {label:'P-R', content: characterList.filter(name=>regPtoR.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))},
-        {label:'S-U', content: characterList.filter(name=>name.name===regStoU).map((names, index)=>(
-            <Link class='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
-            </Link>
+        {label:'S-U', content: characterList.filter(name=>regStoU.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))},
-        {label:'V-Z', content: characterList.filter(name=>name.name===regVtoZ).map((names, index)=>(
-            <Link className='text'to={`/view/characters/${names._id}`} key={index}
-            style={{fontSize:'50px', margin:'5px'}}
-            >{names.name}
-            </Link>
+        {label:'V-Z', content: characterList.filter(name=>regVtoZ.exec(name.name)).map((names, index)=>(
+            <div key={index}>
+                <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
+                </div>
         ))}
     ]
     const [ allTabs, setAllTabs ] = useState(alphArray);
