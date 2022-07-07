@@ -23,21 +23,43 @@ h1{
   width: 100vw;
 }
 
-.shireLink a img{
+.shireLink a{
   position:absolute;
   top:510px; left:475px;
   color: transparent;
+  
 }
-.shireLink a:hover img {
+.shireLink :hover{
   position:absolute;
   top:510px; left:475px;
-  color:blue;
+  background-image: url('/public/shire.jpeg');
+  height: 175px;
+  width: 200px;
 }
+
+
+.mordor a{
+  position:absolute;
+  right:175px;
+  top: 870px;
+  color: transparent;
+}
+
+.mordor a:hover{
+  position:absolute;
+  right:175px;
+  top: 870px;
+  background-image: url('/public/mordor.webp');
+  background-position: center;
+  height: 280px;
+  width: 400px;
+}
+
+
 
 .link{
   size: 50px;
-  border: 3px solid black;
-}
+  border: 3px solid black}
 
 .alphabet {
   font-size: 15px;
