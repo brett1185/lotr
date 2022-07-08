@@ -19,6 +19,7 @@ h1{
 
 .map{
   background-image: url('/public/middleEarthMap.png');
+  background-repeat: no-repeat;
   height:150vh;
   width: 100vw;
 }
