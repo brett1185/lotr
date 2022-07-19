@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react' 
+import ReactPaginate from 'react-paginate'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Results from '../views/Results'
 import ViewAlphabetically from '../views/viewAlphabetically'
+import Pagination from '../views/Pagination'
 
 
 const Characters=(props)=>{
@@ -18,6 +20,7 @@ const Characters=(props)=>{
     
     const [search, setSearch]=useState('')
     const [characterList, setCharacterList] = useState ([])
+    const PER_PAGE=10
 
     const searchTool=(e)=>{
         e.preventDefault()
@@ -136,6 +139,7 @@ const Characters=(props)=>{
 
     
             <Results tabText={alphArray[activeTab].content}/>
+            <Pagination characterList={characterList}/>
             </div>
     )
 }

@@ -5,10 +5,12 @@ const Pagination=(props)=>{
     const [currentPage, setCurrentPage]=useState(1)
     const [listPages, setListPages]=useState(0)
     const [perPage, setPerPage]=useState(5)
-    const [pageNumberLimit, setPageNumberLimit]=useState(5)
+    const [maxPageNumberLimit, setMaxPageNumberLimit]=useState(5)
+    const [minPageNumLimit, setMinPageNumLimit]=useState(0)
     const [pages, setPages]=useState([])
 
-    for(leti=1; i<Math.ceil(characterList/perPage); i++){
+
+    for(let i=1; i<Math.ceil(characterList/perPage); i++){
         pages.push(i)
     }
 
@@ -18,8 +20,9 @@ const Pagination=(props)=>{
 
     return(
         <div>
+            <ul>
             {pages.map((number)=>{
-                if(number < maxPageNumberLimit +1 && number > minPageNumberLimit){
+                if(number < maxPageNumberLimit +1 && number > minPageNumLimit){
                     <li 
                     key={number}
                     id={number}
@@ -31,6 +34,7 @@ const Pagination=(props)=>{
                 else{
                     return null}
     })}
+    </ul>
         </div>
     )
 }
