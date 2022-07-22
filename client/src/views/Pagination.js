@@ -4,7 +4,7 @@ const Pagination=(props)=>{
     const {characterList}=props
     const [currentPage, setCurrentPage]=useState(1)
     const [listPages, setListPages]=useState(0)
-    const [perPage, setPerPage]=useState(5)
+    const [perPage, setPerPage]=useState(10)
     const [maxPageNumberLimit, setMaxPageNumberLimit]=useState(5)
     const [minPageNumLimit, setMinPageNumLimit]=useState(0)
     const [pages, setPages]=useState([])
@@ -19,12 +19,12 @@ const Pagination=(props)=>{
     }
 
     return(
-        <div>
+        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
             <ul>
-            {pages.map((number)=>{
+            {pages.map((number, index)=>{
                 if(number < maxPageNumberLimit +1 && number > minPageNumLimit){
                     <li 
-                    key={number}
+                    key={index}
                     id={number}
                     onClick={showPage}
                     className={currentPage === number? 'active':null}>
