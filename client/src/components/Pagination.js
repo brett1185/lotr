@@ -19,7 +19,7 @@ const Pagination=(props)=>{
     }
 
     return(
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
+        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', border:'2px solid red'}}>
             <ul>
             {pages.map((number, index)=>{
                 if(number < maxPageNumberLimit +1 && number > minPageNumLimit){

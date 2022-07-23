@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Results from '../views/Results'
 import ViewAlphabetically from '../views/viewAlphabetically'
-import Pagination from '../views/Pagination'
+import Pagination from './Pagination'
 
 
 const Characters=(props)=>{
@@ -137,7 +137,7 @@ const Characters=(props)=>{
 
     
             <Results tabText={alphArray[activeTab].content}/>
-            <Pagination characterList={characterList}/>
+            <Pagination characterList={alphArray[activeTab].content}/>
             </div>
     )
 }
