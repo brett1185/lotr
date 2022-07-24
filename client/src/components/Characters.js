@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Results from '../views/Results'
 import ViewAlphabetically from '../views/viewAlphabetically'
-import Pagination from './Pagination'
+import Pagination from '../views/Pagination'
 
 
 const Characters=(props)=>{
