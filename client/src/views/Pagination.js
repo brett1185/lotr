@@ -25,21 +25,17 @@ console.log(pages)
     return(
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', border:'2px solid red'}}>
             <ul>
-            {pages.map((number)=>{
-                if(number < maxPageNumberLimit +1 && number > minPageNumLimit){
-                    <li 
-                    key={number}
+            {pages.map((number, index)=>{
+                
+                    <li
+                    key={index}
                     id={number}
                     onClick={showPage}
-                    className={currentPage === number? 'active':null}
                     className='text'>
-                        {number.index}
-                    </li>
-                }
-                else{
-                    return null}
+                        {number}
+                        </li> 
                 })}
-    </ul>
+            </ul>
         </div>
     )
 }
