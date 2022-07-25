@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import { matchPath } from 'react-router'
+import React,  {useState} from 'react'
 
 const Pagination=(props)=>{
     const {characterList} = props
@@ -8,14 +7,16 @@ const Pagination=(props)=>{
     const [maxPageNumberLimit, setMaxPageNumberLimit]=useState(5)
     const [minPageNumLimit, setMinPageNumLimit]=useState(0)
     const [pages, setPages]=useState([])
-    const perPage=10
+    const [perPage, setPerPage] = useState(10)
 
-for( let i =1; i <Math.ceil(characterList.length/perPage); i++){
+
+    for( let i =1; i <Math.ceil(characterList.length/perPage); i++){
     pages.push(i)
-    return pages
-}
+    }
 
+    
 console.log(pages)
+
 
     const showPage=(e)=>{
         setCurrentPage(Number(e.target.id))
@@ -32,7 +33,7 @@ console.log(pages)
                     onClick={showPage}
                     className={currentPage === number? 'active':null}
                     className='text'>
-                        {number}
+                        {number.index}
                     </li>
                 }
                 else{
