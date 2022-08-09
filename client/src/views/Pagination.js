@@ -30,7 +30,6 @@ console.log(pages)
                     <li
                     key={index}
                     id={number}
-                    onClick={showPage}
                     className='text'>
                         {number}
                         </li> 
