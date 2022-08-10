@@ -20,6 +20,8 @@ const Characters=(props)=>{
     const [search, setSearch]=useState('')
     const [characterList, setCharacterList] = useState ([])
 
+
+
     const searchTool=(e)=>{
         e.preventDefault()
         setSearch(e.target.value)
@@ -121,6 +123,8 @@ const Characters=(props)=>{
             setCurrentTabIndex(index);
         }
 
+        
+        
 
         return(
             <div>
@@ -137,8 +141,14 @@ const Characters=(props)=>{
 
     
             <Results tabText={alphArray[activeTab].content}/>
-            <Pagination characterList={alphArray[activeTab].content}/>
-            </div>
+            
+    
+            
+
+                
+        
+            <Pagination characterList={characterList}/>
+        </div>
     )
 }
 
