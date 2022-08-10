@@ -135,7 +135,7 @@ const Characters=(props)=>{
 
          {/* <ViewAlphabetically allTabs={allTabs} currentTabIndex={currentTabIndex} setCurrentTabIndex={setCurrentTabIndex} /> */}            
             <Results tabText={alphArray[activeTab].content}/>
-            <Pagination characterList={characterList}/>
+            <Pagination characterList={alphArray[activeTab].content}/>
         </div>
     )
 }
