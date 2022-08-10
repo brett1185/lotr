@@ -122,10 +122,6 @@ const Characters=(props)=>{
         const setSelectedTab = (index) => {
             setCurrentTabIndex(index);
         }
-
-        
-        
-
         return(
             <div>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', marginTop:'30px'}}>
@@ -138,15 +134,7 @@ const Characters=(props)=>{
             </div>    
 
          {/* <ViewAlphabetically allTabs={allTabs} currentTabIndex={currentTabIndex} setCurrentTabIndex={setCurrentTabIndex} /> */}            
-
-    
             <Results tabText={alphArray[activeTab].content}/>
-            
-    
-            
-
-                
-        
             <Pagination characterList={characterList}/>
         </div>
     )
