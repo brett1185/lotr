@@ -16,9 +16,9 @@ const Pagination=(props)=>{
     }
 
 return(
-    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', border:'2px solid red', textOverflow: 'hidden'}}>
+    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', border:'2px solid red', overflow:'scroll'}}>
     {pages.map((number, index)=>(
-        <p className='text'
+        <p
         key={index}
         id={number}>{number}</p>))}
 </div>
