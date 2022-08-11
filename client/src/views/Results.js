@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 const Results=(props)=>{
-    const { tabText } = props;
+    const { tabText, currentPage } = props;
+    const perPage=10
+    const lastSplitItem = currentPage * perPage
+    const firstSplitItem = lastSplitItem - perPage
 
     return (
         <div className="results">
             <h1>List of Characters</h1>
-            {tabText}
+            {tabText.slice(firstSplitItem, lastSplitItem)}
         </div>
     )
     

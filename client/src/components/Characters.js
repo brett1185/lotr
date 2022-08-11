@@ -19,6 +19,12 @@ const Characters=(props)=>{
     
     const [search, setSearch]=useState('')
     const [characterList, setCharacterList] = useState ([])
+    const [currentPage, setCurrentPage]=useState(1)
+    const perPage=10
+    const lastSplitItem = currentPage * perPage
+    const firstSplitItem = lastSplitItem - perPage
+
+
 
 
 
@@ -134,8 +140,10 @@ const Characters=(props)=>{
             </div>    
 
          {/* <ViewAlphabetically allTabs={allTabs} currentTabIndex={currentTabIndex} setCurrentTabIndex={setCurrentTabIndex} /> */}            
-            <Results tabText={alphArray[activeTab].content}/>
-            <Pagination characterList={alphArray[activeTab].content}/>
+            <Results tabText={alphArray[activeTab].content} currentPage={currentPage}/>
+            <Pagination characterList={alphArray[activeTab].content}
+            perPage={perPage}
+            setCurrentPage={setCurrentPage}/>
         </div>
     )
 }
