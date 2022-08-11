@@ -4,12 +4,17 @@ const Pagination=(props)=>{
     const {characterList} = props
     const [currentPage, setCurrentPage]=useState(1)
     const [perPage, setPerPage] = useState(10)
+    
 
     const pages=[]
     for(let i=1; i <= Math.ceil(characterList.length/perPage); i++){
         pages.push(i)
     }
     console.log(pages)
+
+    const lastSplitItem = currentPage * perPage
+    const firstSplitItem = lastSplitItem - perPage
+    const currentDisplay = characterList.slice(firstSplitItem, lastSplitItem)
 
     const showPage=(e)=>{
         setCurrentPage(Number(e.target.id))
