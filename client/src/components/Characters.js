@@ -21,12 +21,6 @@ const Characters=(props)=>{
     const [characterList, setCharacterList] = useState ([])
     const [currentPage, setCurrentPage]=useState(1)
     const perPage=10
-    const lastSplitItem = currentPage * perPage
-    const firstSplitItem = lastSplitItem - perPage
-
-
-
-
 
     const searchTool=(e)=>{
         e.preventDefault()
@@ -128,6 +122,10 @@ const Characters=(props)=>{
         const setSelectedTab = (index) => {
             setCurrentTabIndex(index);
         }
+        const selectAlph=(index)=>{
+            setActiveTab(index)
+            setCurrentPage(1)
+        }
         return(
             <div>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', marginTop:'30px'}}>
@@ -140,7 +138,7 @@ const Characters=(props)=>{
             </div>    
 
          {/* <ViewAlphabetically allTabs={allTabs} currentTabIndex={currentTabIndex} setCurrentTabIndex={setCurrentTabIndex} /> */}            
-            <Results tabText={alphArray[activeTab].content} currentPage={currentPage}/>
+            <Results tabText={alphArray[activeTab].content} currentPage={currentPage} perPage={perPage}/>
             <Pagination characterList={alphArray[activeTab].content}
             perPage={perPage}
             setCurrentPage={setCurrentPage}/>

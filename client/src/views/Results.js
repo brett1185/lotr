@@ -2,8 +2,7 @@ import React, {useState} from "react";
 
 
 const Results=(props)=>{
-    const { tabText, currentPage } = props;
-    const perPage=10
+    const { tabText, currentPage, perPage } = props;
     const lastSplitItem = currentPage * perPage
     const firstSplitItem = lastSplitItem - perPage
 
