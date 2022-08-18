@@ -17,20 +17,27 @@ const Pagination=(props)=>{
     }
 
 return(
-<div style={{display:'flex', justifyContent:'space-between', flex:'1'}}>
-    <div style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis'}}
-        onClick={()=>setCurrentPage(currentPage-1)}>
+<div style={{display:'flex', justifyContent:'space-evenly'}}>
+<div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
+        onClick={()=>setCurrentPage(1)}>
+    </div>
+    <div style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis', marginTop:'50px'}}
+        onClick={()=>setCurrentPage(currentPage-1)}
+    >
         
     </div>
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', border:'2px solid red'}}>
+        <div style={{display:'flex', flexDirection:'row'}}>
         {pages.map((number, index)=>(
-        <p
+        <p  style ={{border: '1px solid red'}}
             key={index}
             id={number}
             onClick={showPage}>{number}</p>))}
     </div>
-    <div style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis'}}
+    <div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
         onClick={()=>setCurrentPage(currentPage+1)}>
+    </div>
+    <div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
+        onClick={()=>setCurrentPage(pages.length)}>
     </div>
 </div>
 )
