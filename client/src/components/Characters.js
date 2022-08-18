@@ -141,7 +141,8 @@ const Characters=(props)=>{
             <Results tabText={alphArray[activeTab].content} currentPage={currentPage} perPage={perPage}/>
             <Pagination characterList={alphArray[activeTab].content}
             perPage={perPage}
-            setCurrentPage={setCurrentPage}/>
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}/>
         </div>
     )
 }
