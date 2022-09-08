@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Pagination=(props)=>{
     const {characterList, perPage, setCurrentPage, currentPage} = props
-    const maxDisplay = 5
-    const minDisplay=0
+    const [maxDisplay, setMaxDisplay] = useState(5)
+    const [minDisplay, setMinDisplay]=useState(0)
+    const pageLimit = 5
 
     const pages=[]
     for(let i=1; i <= Math.ceil(characterList.length/perPage); i++){
@@ -14,9 +15,18 @@ const Pagination=(props)=>{
     const showPage=(e)=>{
         setCurrentPage(Number(e.target.id))
     }
+    let prevEllipses = null
+    if(minDisplay >=1){
+        prevEllipses = <p> &hellip;</p>
+    }
+    let nextEllipses = null
+    if(pages.length > maxDisplay){
+        nextEllipses = <p>&hellip;</p>
+    }
+
     const pageDisplay = pages.map((number)=>{
         if (number < maxDisplay + 1 && number > minDisplay){
-            return( <p  style ={{fontSize:'15px', border: '1px solid red', height:'16px'}}
+            return( <p  className = {currentPage === number ? 'selectedTab' : 'nonSelectedTab'}
             key={number}
             id={number}
             onClick={showPage}>{number}</p>)
@@ -24,26 +34,47 @@ const Pagination=(props)=>{
             return null
         }
     })
+    const prevClick = ()=>{
+        if ((currentPage-1) % pageLimit === 0){
+            setMaxDisplay(maxDisplay - pageLimit)
+            setMinDisplay(minDisplay - pageLimit)
+        }
+        setCurrentPage(currentPage-1)
+
+    }
+
+    const nextClick =() =>{
+        if(currentPage + 1 > maxDisplay){
+            setMaxDisplay(maxDisplay + pageLimit)
+            setMinDisplay(minDisplay + pageLimit)
+        }
+        setCurrentPage(currentPage + 1)
+    }
+
+    
 
 
 return(
 <div style={{display:'flex', justifyContent:'space-evenly'}}>
 <div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={()=>setCurrentPage(1)}>
+        onClick={()=>setCurrentPage(1)}>{pages[0]}
     </div>
-    <div style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis', marginTop:'50px'}}
-        onClick={()=>setCurrentPage(currentPage-1)}
+    <button style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis', marginTop:'50px'}}
+        onClick={prevClick}
     >
         
-    </div>
+    </button>
+
         <div style={{display:'flex', flexDirection:'row'}}>
+            {prevEllipses}
             {pageDisplay}
+            {nextEllipses}
     </div>
+    <button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
+        onClick={nextClick}>
+    </button>
     <div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={()=>setCurrentPage(currentPage+1)}>
-    </div>
-    <div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={()=>setCurrentPage(pages.length)}>
+        onClick={()=>setCurrentPage(pages.length)}>{pages[pages.length-1]}
     </div>
 </div>
 )
