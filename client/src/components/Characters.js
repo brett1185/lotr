@@ -21,6 +21,8 @@ const Characters=(props)=>{
     const [characterList, setCharacterList] = useState ([])
     const [currentPage, setCurrentPage]=useState(1)
     const perPage=10
+    const lastSplitItem = currentPage * perPage
+    const firstSplitItem = lastSplitItem - perPage
 
     const searchTool=(e)=>{
         e.preventDefault()
@@ -102,6 +104,7 @@ const Characters=(props)=>{
                 else if (
                     name.name.toLowerCase().includes(search)){
                     return name}})
+                .slice(firstSplitItem, lastSplitItem)
                 .map((names, index)=>(
             <Link key ={index} className='text' to={`/view/characters/${names._id}`} style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
             ))}

@@ -9,7 +9,7 @@ const Results=(props)=>{
     return (
         <div className="results">
             <h1>List of Characters</h1>
-            {tabText.slice(firstSplitItem, lastSplitItem)}
+            {tabText}
         </div>
     )
     
