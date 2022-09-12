@@ -23,7 +23,6 @@ const Pagination=(props)=>{
     if(pages.length > maxDisplay){
         nextEllipses = <p>&hellip;</p>
     }
-
     const pageDisplay = pages.map((number)=>{
         if (number < maxDisplay + 1 && number > minDisplay){
             return( <p  className = {currentPage === number ? 'selectedTab' : 'nonSelectedTab'}
@@ -50,19 +49,28 @@ const Pagination=(props)=>{
         }
         setCurrentPage(currentPage + 1)
     }
+    const firstPage = () => {
+        setCurrentPage(1);
+        setMaxDisplay(5);
+        setMinDisplay(0)
+    }
 
+    const lastPage = () => {
+        setCurrentPage(pages.length)
+        setMaxDisplay(pages.length +1)
+        setMinDisplay(pages.length-5)
+    }
     
 
 
 return(
 <div style={{display:'flex', justifyContent:'space-evenly'}}>
-<div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={()=>setCurrentPage(1)}>{pages[0]}
-    </div>
+<button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
+        onClick={firstPage}>{pages[0]}
+    </button>
     <button style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis', marginTop:'50px'}}
         onClick={prevClick}
-    >
-        
+        disabled = {currentPage ===1? true : false}> Prev
     </button>
 
         <div style={{display:'flex', flexDirection:'row'}}>
@@ -71,11 +79,12 @@ return(
             {nextEllipses}
     </div>
     <button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={nextClick}>
+        onClick={nextClick}
+        disabled = {currentPage === pages[pages.length-1]? true : false}>Next
     </button>
-    <div style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={()=>setCurrentPage(pages.length)}>{pages[pages.length-1]}
-    </div>
+    <button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
+        onClick={lastPage}>{pages[pages.length-1]}
+    </button>
 </div>
 )
 }
