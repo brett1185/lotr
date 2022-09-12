@@ -49,25 +49,13 @@ const Pagination=(props)=>{
         }
         setCurrentPage(currentPage + 1)
     }
-    const firstPage = () => {
-        setCurrentPage(1);
-        setMaxDisplay(5);
-        setMinDisplay(0)
-    }
 
-    const lastPage = () => {
-        setCurrentPage(pages.length)
-        setMaxDisplay(pages.length +1)
-        setMinDisplay(pages.length-5)
-    }
-    
+
+
 
 
 return(
 <div style={{display:'flex', justifyContent:'space-evenly'}}>
-<button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={firstPage}>{pages[0]}
-    </button>
     <button style={{border:'1px solid black', height:'50px', width:'50px', textOverflow:'ellipsis', marginTop:'50px'}}
         onClick={prevClick}
         disabled = {currentPage ===1? true : false}> Prev
@@ -81,9 +69,6 @@ return(
     <button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
         onClick={nextClick}
         disabled = {currentPage === pages[pages.length-1]? true : false}>Next
-    </button>
-    <button style={{border:'1px solid black', height:'50px', width:'50px',  marginTop:'50px'}}
-        onClick={lastPage}>{pages[pages.length-1]}
     </button>
 </div>
 )

@@ -122,15 +122,11 @@ const Characters=(props)=>{
         const setSelectedTab = (index) => {
             setCurrentTabIndex(index);
         }
-        const selectAlph=(index)=>{
-            setActiveTab(index)
-            setCurrentPage(1)
-        }
         return(
             <div>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', marginTop:'30px'}}>
                     {allTabs.map((item, index) => (
-            <div key={index} className={`tab ${ tabStyle(index) }`} onClick={()=>setActiveTab(index)}>
+            <div key={index} className={`tab ${ tabStyle(index) }`} onClick={()=> setActiveTab(index)}>
                 { item.label }
             </div>
         ))
@@ -138,8 +134,12 @@ const Characters=(props)=>{
             </div>    
 
          {/* <ViewAlphabetically allTabs={allTabs} currentTabIndex={currentTabIndex} setCurrentTabIndex={setCurrentTabIndex} /> */}            
-            <Results tabText={alphArray[activeTab].content} currentPage={currentPage} perPage={perPage}/>
-            <Pagination characterList={alphArray[activeTab].content}
+            <Results 
+            tabText={alphArray[activeTab].content} 
+            currentPage={currentPage} 
+            perPage={perPage}/>
+            <Pagination 
+            characterList={alphArray[activeTab].content}
             perPage={perPage}
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}/>
