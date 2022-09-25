@@ -67,3 +67,9 @@ You're about to initialize a Firebase project in this directory:
 [info] 
 [info] ✔  Success! Logged into GitHub as brett1185 
 [info] 
+[debug] [2022-09-25T14:58:33.631Z] >>> [apiv2][query] GET https://api.github.com/repos/brett1185/lotr/actions/secrets/public-key type=owner
+[debug] [2022-09-25T14:58:33.839Z] <<< [apiv2][status] GET https://api.github.com/repos/brett1185/lotr/actions/secrets/public-key 401
+[debug] [2022-09-25T14:58:33.839Z] <<< [apiv2][body] GET https://api.github.com/repos/brett1185/lotr/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2022-09-25T14:59:12.808Z] >>> [apiv2][query] GET https://api.github.com/repos/brett1185/lotr/actions/secrets/public-key type=owner
+[debug] [2022-09-25T14:59:12.983Z] <<< [apiv2][status] GET https://api.github.com/repos/brett1185/lotr/actions/secrets/public-key 401
+[debug] [2022-09-25T14:59:12.983Z] <<< [apiv2][body] GET https://api.github.com/repos/brett1185/lotr/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
