@@ -48,69 +48,108 @@ const Characters=(props)=>{
     const [activeTab, setActiveTab] =useState(0)
 
     const alphArray=[
-        {label: 'View All', content: characterList.map((names, index)=>(
+        {label: 'View All', content: characterList.filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
             <Link className='text'to={`/view/characters/${names._id}`}
             style={{fontSize:'50px', margin:'5px'}}
             >{names.name}
             </Link></div>)
         )},
-        {label:'A-C', content: characterList.filter(name=>regAtoC.exec(name.name)).map((names, index)=>(
+        {label:'A-C', content: characterList.filter(name=>regAtoC.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}}).map((names, index)=>(
         <div key={index}>
             <Link className='text' to={`/view/characters/${names._id}`} style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
             </div>
         ))
         },
-        {label:'D-F', content: characterList.filter(name=>regDtoF.exec(name.name)).map((names, index)=>(
+        {label:'D-F', content: characterList.filter(name=>regDtoF.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}}).map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
         ))},
-        {label:'G-I', content: characterList.filter(name=>regGtoI.exec(name.name)).map((names, index)=>(
+        {label:'G-I', content: characterList.filter(name=>regGtoI.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
         ))},
-        {label:'J-L', content: characterList.filter(name=>regJtoL.exec(name.name)).map((names, index)=>(
+        {label:'J-L', content: characterList.filter(name=>regJtoL.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
         ))},
-        {label:'M-O', content: characterList.filter(name=>regMtoO.exec(name.name)).map((names, index)=>(
+        {label:'M-O', content: characterList.filter(name=>regMtoO.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
         ))},
-        {label:'P-R', content: characterList.filter(name=>regPtoR.exec(name.name)).map((names, index)=>(
+        {label:'P-R', content: characterList.filter(name=>regPtoR.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
         ))},
-        {label:'S-U', content: characterList.filter(name=>regStoU.exec(name.name)).map((names, index)=>(
+        {label:'S-U', content: characterList.filter(name=>regStoU.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
         ))},
-        {label:'V-Z', content: characterList.filter(name=>regVtoZ.exec(name.name)).map((names, index)=>(
+        {label:'V-Z', content: characterList.filter(name=>regVtoZ.exec(name.name)).filter((name)=>{               
+            if (search === ''){
+            return name}
+        else if (
+            name.name.toLowerCase().includes(search)){
+            return name}})
+            .map((names, index)=>(
             <div key={index}>
                 <Link className='text' to={`/view/characters/${names._id}`}style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
                 </div>
-        ))},
-        {label: 'Search by name', content: <div style={{display: 'flex', justifyContent:'center', flexDirection:'column'}}>
-            <input style={{width: '100px', marginLeft:'46%'}} type='text' placeholder='type name here...' onChange={(e)=>setSearch(e.target.value)}/>
-            {characterList.filter((name)=>{
-                if (search === ''){
-                    return name}
-                else if (
-                    name.name.toLowerCase().includes(search)){
-                    return name}})
-                .slice(firstSplitItem, lastSplitItem)
-                .map((names, index)=>(
-            <Link key ={index} className='text' to={`/view/characters/${names._id}`} style={{fontSize:'50px', margin:'5px'}}>{names.name}</Link>
-            ))}
-        </div>
-    }
+        ))}
     ]
+    
     const [ allTabs, setAllTabs ] = useState(alphArray);
 
     const [ currentTabIndex, setCurrentTabIndex ] = useState(0);
@@ -122,18 +161,23 @@ const Characters=(props)=>{
             }
         }
     
-        const setSelectedTab = (index) => {
-            setCurrentTabIndex(index);
+        const setSelectedTab = (tabIndex) => {
+            setActiveTab(tabIndex);
+            setCurrentPage(1)
+
         }
         return(
             <div>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', marginTop:'30px'}}>
-                    {allTabs.map((item, index) => (
-            <div key={index} className={`tab ${ tabStyle(index) }`} onClick={()=> setActiveTab(index)}>
+                    {allTabs.map((item, tabIndex) => (
+            <div key={tabIndex} className={`tab ${ tabStyle(tabIndex) }`} onClick={()=>setActiveTab(tabIndex)}>
                 { item.label }
             </div>
         ))
                     }
+            <input placeholder = 'Search by name ...' 
+            type='text'
+            onChange={(e)=>setSearch(e.target.value)}/>
             </div>    
 
          {/* <ViewAlphabetically allTabs={allTabs} currentTabIndex={currentTabIndex} setCurrentTabIndex={setCurrentTabIndex} /> */}            
