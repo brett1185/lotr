@@ -5,7 +5,7 @@ const Navbar=(props)=>{
 
 
     return(
-        <div style={{display:'flex', flexDirection:'column'}}>
+        <div style={{display:'flex', flexDirection:'column', backgroundImage: './build/ringBanner.jpeg'}}>
             <h2 className='text'
                 style={{fontSize:'60px'}}>Directory</h2>
             <div style={{display:'flex', justifyContent:'space-evenly'}}>
